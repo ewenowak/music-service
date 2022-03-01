@@ -7,75 +7,72 @@
   min-height: 500px;
   position: relative;  
 }
+
 .header-content{
-    position: absolute;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    text-transform: uppercase;
-    font-weight: $font-black;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-transform: uppercase;
+  font-weight: $font-black;
 }
 
 .header-title{
-    font-size: 200px;
-    letter-spacing: 110px;
-    margin-bottom: 80px;
+  font-size: 200px;
+  letter-spacing: 110px;
+  margin-bottom: 80px;
 }
 
 .header-subtitle {
-    margin-top: 0px;
-    font-size: 36px; 
-    line-height: 60px;
-    letter-spacing: 15px;
+  margin-top: 0px;
+  font-size: 36px;
+  line-height: 60px;
+  letter-spacing: 15px;
 }
 
 .main-nav {
-    text-transform: uppercase;
-    text-align: center;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
 
-    a{
+  a{
         
-        @extend .h2;
-        text-decoration: none;
-        color: $color-medium;
-        font-weight: $font-semibold;
+    @extend .h2;
+    text-decoration: none;
+    color: $color-medium;
+    font-weight: $font-semibold;
         
     
 
-        &.active{
-            color: $color-light;
-            transition: $transition;   
-        }
+    &.active{
+      color: $color-light;
+      transition: $transition;   
     }
+  }
 
-    a:hover{
-        font-size: 36px;
-    }
+  a:hover{
+    font-size: 36px;
+  }
    
 }
 
 
 @media (max-width: 800px) {
-    .header-wrapper{
-        min-height: 300px;
-    }
-    .header-title {
-        font-size: 60px;
-        letter-spacing: 20px;
-    }
+  .header-wrapper{
+    min-height: 300px;
+  }
 
-    .header-subtitle {
-        font-size: 20px;
-        letter-spacing: 10px;
-    }
+  .header-title {
+    font-size: 60px;
+    letter-spacing: 20px;
+  }
+
+  .header-subtitle {
+    font-size: 20px;
+    letter-spacing: 10px;
+  }
     
-} 
-
-    
-
-
-
+}
