@@ -5,9 +5,9 @@ class DiscoverSong {
     const thisDiscoverSong = this;
 
     thisDiscoverSong.data = data;
-    thisDiscoverSong.data.songs = data.songs;
+   
     
-    thisDiscoverSong.randomSong(data);
+    thisDiscoverSong.randomSong();
       
   }
   
@@ -19,8 +19,14 @@ class DiscoverSong {
     
     const randomNumber = Math.floor(Math.random() * songsNumber);
 
-    new Song(thisDiscoverSong.data.song[randomNumber]);
+    new Song(thisDiscoverSong.data.songs[randomNumber]);
 
+
+    // eslint-disable-next-line no-undef
+    GreenAudioPlayer.init({ 
+      selector: '.gap',
+      stopOthersOnPlay: true
+    });
 
   }
  

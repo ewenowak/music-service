@@ -1,6 +1,7 @@
 import { settings, select, classNames } from './settings.js';
 
 import Song from './components/Song.js';
+import SearchWidget from './components/SearchWidget.js';
 import DiscoverSong from './components/DiscoverSong.js';
 
 const app = {
@@ -43,11 +44,11 @@ const app = {
 
         window.location.hash = '#/' + id;
 
-
-
       });
     }
   },
+
+  
 
   activatePage: function(pageId){
     const thisApp = this;
@@ -58,6 +59,8 @@ const app = {
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
 
+    console.log('pageID', pageId);
+
     /* add class active to matching page, remove from non-matching */
     for (let link of thisApp.navLinks){
       link.classList.toggle(
@@ -65,16 +68,14 @@ const app = {
         link.getAttribute('href') == '#' + pageId
       );
     }
+    
   },
 
   initData: function(){
     const thisApp = this;
     
-    thisApp.data = {};
-
     const url = settings.db.url + '/' + settings.db.songs;
-
-    console.log('url', url);
+    thisApp.data = {};
 
     fetch(url)
       .then(function(rawResponse){
@@ -83,8 +84,17 @@ const app = {
       .then(function(parsedResponse){
 
         thisApp.data.songs = parsedResponse;
-
-        thisApp.initSongs();
+       
+        const pageId = window.location.hash.replace('#/', '');
+        console.log('pageId', pageId);
+        
+        if (pageId == 'home'){
+          thisApp.initSongs();
+        } else if (pageId == 'search'){
+          thisApp.initSearchWidget();
+        } else if(pageId == 'discover'){
+          thisApp.initDiscoverSong();
+        }
       });
   },
 
@@ -103,21 +113,21 @@ const app = {
     });
   },
 
-  initDiscoverSong: function(){
+  initDiscoverSong(){
     const thisApp = this;
-
-    thisApp.discoverWrapper = document.querySelector(select.containerOf.discover);
-    thisApp.bookingContainer = new DiscoverSong(thisApp.discoverWrapper);
+    new DiscoverSong(thisApp.data);
   },
-  
+
+  initSearchWidget(){
+    const thisApp = this;
+    new SearchWidget(thisApp.data);
+  },
 
   init: function(){
     const thisApp = this;
 
     thisApp.initData();
     thisApp.initPages();
-    thisApp.initDiscoverSong();
-    
   }
 };
 app.init();

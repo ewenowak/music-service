@@ -6,12 +6,17 @@ export const select = {
   containerOf: {
     songList: '#song-list',
     pages: '#pages',
-    discover: '#discover-wrapper'
+    subscribe: '.subscribe',
   },
 
   nav: {
     links: '.main-nav a',
   },
+
+  form: {
+    input: '#search_input',
+    button: '.form button'
+  }
 };
 
 export const classNames = {
@@ -20,6 +25,9 @@ export const classNames = {
   },
   pages: {
     active: 'active',
+  },
+  subscribe: {
+    active: 'active'
   }
 };
 
