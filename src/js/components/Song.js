@@ -1,13 +1,15 @@
-import { templates, select } from '../settings.js';
+import { templates} from '../settings.js';
 
 import { utils } from '../utils.js';
 
 
 class Song { 
-  constructor(data){
+  constructor(data, wrapperElement){
     const thisSong = this;
 
     thisSong.data = data;
+    thisSong.dom = {};
+    thisSong.dom.wrapper = wrapperElement;
     
     thisSong.songData();
     thisSong.renderInSongs();
@@ -20,8 +22,8 @@ class Song {
 
     thisSong.element = utils.createDOMFromHTML(generatedHTML);
 
-    const songContainer = document.querySelector(select.containerOf.songList);
-
+    const songContainer = thisSong.dom.wrapper;
+    console.log('songContainer', songContainer);
 
     songContainer.appendChild(thisSong.element);
 
@@ -61,11 +63,7 @@ class Song {
     author = author.replace(regEx, '');
 
     return author;
-    
   }
- 
-
-  
   
 }
 

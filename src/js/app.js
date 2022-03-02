@@ -85,25 +85,17 @@ const app = {
 
         thisApp.data.songs = parsedResponse;
        
-        const pageId = window.location.hash.replace('#/', '');
-        console.log('pageId', pageId);
-        
-        if (pageId == 'home'){
-          thisApp.initSongs();
-        } else if (pageId == 'search'){
-          thisApp.initSearchWidget();
-        } else if(pageId == 'discover'){
-          thisApp.initDiscoverSong();
-        }
+        thisApp.initSongs();
       });
   },
 
   initSongs(){
     const thisApp = this;
 
+    const homeWrapper = document.querySelector(select.containerOf.home);
     for(let song in thisApp.data.songs){
 
-      new Song(thisApp.data.songs[song]);
+      new Song(thisApp.data.songs[song], homeWrapper);
     }
 
     // eslint-disable-next-line no-undef

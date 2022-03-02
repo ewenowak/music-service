@@ -7,10 +7,11 @@ export const select = {
     songList: '#song-list',
     pages: '#pages',
     subscribe: '.subscribe',
+    home: '.home-wrapper'
   },
 
   nav: {
-    links: '.main-nav a',
+    links: '.main-nav a'
   },
 
   form: {
