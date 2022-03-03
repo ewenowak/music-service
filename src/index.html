@@ -26,19 +26,40 @@
 
     <div id="pages">
         <section id="home" class="container">
+            <div class="home-wrapper"></div>
+            <div class="subscribe">
+                <div class="container">
+                    <h1>Subscribe<span>now</span></h1>
+                    <div class="row">
+                        <div class="btn subscribe-button">
+                        <a href="#join-now">join now</a>
+                        </div>
+                        <div class="subscribe-content">
+                            <p>Dean</p>
+                            <p>Hen<span>son</span></p>
+                            <img src="./images/artist.jpg" alt="artist">
+                            <p>new album</p>
+                            <p>Available only for subscribers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="search" class="container">
             <h2 class="page-title">SEARCH</h2>
             <div class="form">
                 <label>Name</label>
-                <input id="search_input" type="text">
+                <input id="search-input" type="text">
                 <button type="button">search</button>
             </div>
             <p>We have found {{namberValue}}</p>
+            <div class="search-wrapper"></div>
         </section>
         <section id="discover" class="container">
             <h2 class="page-title">DISCOVER</h2>
             <p>Give it a try!</p>
+            <div class="discover-wrapper">
+            </div>
         </section>
         <section id="join-now" class="container">
         </section>
@@ -60,25 +81,6 @@
             <div class="song_description_ranking">#{{ranking}} in the ranking</div>
         </div>
     </script>
-
-    <div class="subscribe">
-        <div class="container">
-            <h1>Subscribe<span>now</span></h1>
-            <div class="row">
-                <div class="btn subscribe-button">
-                <a href="#join-now">join now</a>
-                </div>
-                <div class="subscribe-content">
-                    <p>Dean</p>
-                    <p>Hen<span>son</span></p>
-                    <img src="./images/artist.jpg" alt="artist">
-                    <p>new album</p>
-                    <p>Available only for subscribers</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <div class="container">
             <p>All rights reserved</p>

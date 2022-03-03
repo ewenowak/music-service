@@ -23,7 +23,6 @@ class Song {
     thisSong.element = utils.createDOMFromHTML(generatedHTML);
 
     const songContainer = thisSong.dom.wrapper;
-    console.log('songContainer', songContainer);
 
     songContainer.appendChild(thisSong.element);
 

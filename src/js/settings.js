@@ -7,7 +7,9 @@ export const select = {
     songList: '#song-list',
     pages: '#pages',
     subscribe: '.subscribe',
-    home: '.home-wrapper'
+    home: '.home-wrapper',
+    discover: '.discover-wrapper',
+    search: '.search-wrapper'
   },
 
   nav: {
@@ -15,7 +17,7 @@ export const select = {
   },
 
   form: {
-    input: '#search_input',
+    input: 'search-input',
     button: '.form button'
   }
 };

@@ -1,11 +1,13 @@
 import {select} from '../settings.js';
+import { utils } from '../utils.js';
+import Song from './Song.js';
 
 class SearchWidget{
   constructor(data){
     const thisWidget = this;
 
     thisWidget.data = data;
-    console.log('data', thisWidget.data);
+
     thisWidget.dom = {};
 
     thisWidget.getElements();
@@ -18,6 +20,7 @@ class SearchWidget{
 
     thisWidget.dom.input = document.querySelector(select.form.input);
     thisWidget.dom.button = document.querySelector(select.form.button);
+    thisWidget.dom.searchWrapper = document.querySelector(select.containerOf.search);
   }
 
   initActions(){
@@ -26,19 +29,39 @@ class SearchWidget{
     thisWidget.dom.button.addEventListener('click', function(event){
       event.preventDefault();
       
-      
-      console.log('kliknąłem w guzik');
       thisWidget.initSearch();
+
     });
   }
 
   initSearch(){
     const thisWidget = this;
 
-    thisWidget.value = document.getElementById('search').value;
 
-    console.log('value', thisWidget.value);
-  }
+    thisWidget.value = document.getElementById(select.form.input).value;
+    console.log(thisWidget.value);
+  
+    let valueRegExp = new RegExp(thisWidget.value, 'i');
+   
+    for (let song in thisWidget.data.songs){
+       
+      let filename = thisWidget.data.songs[song].filename;
+      console.log('filename', filename);
+
+      const findAmount = filename.search(valueRegExp); 
+
+      if(findAmount >= 0){
+        new Song(thisWidget.data.songs[song], thisWidget.dom.searchWrapper);
+        utils.initGreenAudioPlayer();
+      }
+    }
+  } 
+    
 }
+    
+
+
+
+
 
 export default SearchWidget;

@@ -1,3 +1,4 @@
+import { select } from '../settings.js';
 import Song from './Song.js';
 
 class DiscoverSong { 
@@ -18,8 +19,9 @@ class DiscoverSong {
     
     
     const randomNumber = Math.floor(Math.random() * songsNumber);
-
-    new Song(thisDiscoverSong.data.songs[randomNumber]);
+    const discoverWrapper = document.querySelector(select.containerOf.discover);
+    
+    new Song(thisDiscoverSong.data.songs[randomNumber], discoverWrapper);
 
 
     // eslint-disable-next-line no-undef
@@ -29,9 +31,6 @@ class DiscoverSong {
     });
 
   }
- 
-
-  
 }
 
 export default DiscoverSong;
