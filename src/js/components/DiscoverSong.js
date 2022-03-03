@@ -1,4 +1,5 @@
 import { select } from '../settings.js';
+//import { utils } from '../utils.js';
 import Song from './Song.js';
 
 class DiscoverSong { 
@@ -25,10 +26,7 @@ class DiscoverSong {
 
 
     // eslint-disable-next-line no-undef
-    GreenAudioPlayer.init({ 
-      selector: '.gap',
-      stopOthersOnPlay: true
-    });
+    //utils.initGreenAudioPlayer();
 
   }
 }

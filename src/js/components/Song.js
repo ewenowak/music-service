@@ -13,6 +13,7 @@ class Song {
     
     thisSong.songData();
     thisSong.renderInSongs();
+    
   }
 
   renderInSongs(){
@@ -27,6 +28,7 @@ class Song {
     songContainer.appendChild(thisSong.element);
 
   }
+
 
   
   songData(){

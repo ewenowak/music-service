@@ -3,6 +3,8 @@ import { settings, select, classNames } from './settings.js';
 import Song from './components/Song.js';
 import SearchWidget from './components/SearchWidget.js';
 import DiscoverSong from './components/DiscoverSong.js';
+import { utils } from './utils.js';
+
 
 const app = {
 
@@ -43,7 +45,6 @@ const app = {
         /* change URL hash */
 
         window.location.hash = '#/' + id;
-
       });
     }
   },
@@ -86,8 +87,11 @@ const app = {
         thisApp.data.songs = parsedResponse;
        
         thisApp.initSongs();
-        thisApp.initSearchWidget();
+        
         thisApp.initDiscoverSong();
+        
+        thisApp.initSearchWidget();
+        utils.initGreenAudioPlayer();
       });
   },
 
@@ -101,10 +105,7 @@ const app = {
     }
 
     // eslint-disable-next-line no-undef
-    GreenAudioPlayer.init({ 
-      selector: '.gap',
-      stopOthersOnPlay: true
-    });
+    //utils.initGreenAudioPlayer();
   },
 
   initDiscoverSong(){
@@ -116,6 +117,8 @@ const app = {
     const thisApp = this;
     new SearchWidget(thisApp.data);
   },
+
+
 
   init: function(){
     const thisApp = this;
