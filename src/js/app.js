@@ -86,6 +86,8 @@ const app = {
         thisApp.data.songs = parsedResponse;
        
         thisApp.initSongs();
+        thisApp.initSearchWidget();
+        thisApp.initDiscoverSong();
       });
   },
 
