@@ -1,5 +1,3 @@
-
-
 export const utils = {}; // eslint-disable-line no-unused-vars
 
 utils.createDOMFromHTML = function(htmlString) {
@@ -8,10 +6,10 @@ utils.createDOMFromHTML = function(htmlString) {
   return div.firstChild;
 };
 
-utils.getAuthor = function(text){
-  text = text.replace('_');
-
-  return text;
+utils.initGreenAudioPlayer = function(){
+  // eslint-disable-next-line no-undef
+  GreenAudioPlayer.init({
+    selector: '.gap', // inits Green Audio Player on each audio container that has class "player"
+    stopOthersOnPlay: true
+  });
 };
-
-  

@@ -57,10 +57,7 @@ class SearchWidget{
         new Song(thisWidget.data.songs[song], thisWidget.dom.searchWrapper);
         
         // eslint-disable-next-line no-undef
-        GreenAudioPlayer.init({ 
-          selector: '.gap',
-          stopOthersOnPlay: true
-        });
+        utils.initGreenAudioPlayer();
       }
     }
 
