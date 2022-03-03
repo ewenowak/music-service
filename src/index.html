@@ -52,7 +52,7 @@
                 <input id="search-input" type="text">
                 <button type="button">search</button>
             </div>
-            <p>We have found {{namberValue}}</p>
+            <p class="result-amount-wrapper"></p>
             <div class="search-wrapper"></div>
         </section>
         <section id="discover" class="container">
@@ -64,22 +64,24 @@
         <section id="join-now" class="container">
         </section>
     </div>
-
-    <div id="song-list" class="song-list container"></div>
     <script id="template-song-widget" type="text/x-handlebars-template">
-        <div class="container">
+        <div class="container song-wrapper">
             <div class="song_name">
-                <p>{{author}} - {{title}}</p>
+                <p><span class="song-author">{{author}}</span> - {{title}}</p>
             </div>
             <div class="gap">
                     <audio>
                         <source src="db/songs/{{song}}" type="audio/mpeg">
                     </audio>  
             </div>
-        <div class ="song_description">
-            <div class="song_description_categories">Categories: {{categories}}</div>
-            <div class="song_description_ranking">#{{ranking}} in the ranking</div>
+            <div class ="song_description">
+                <div class="song_description_categories">Categories: {{categories}}</div>
+                <div class="song_description_ranking">#{{ranking}} in the ranking</div>
+            </div>
         </div>
+    </script>
+    <script id="template-result-amount" type="text/x-handlebars-template">
+        <p>We have found {{number}} songs.</p>
     </script>
     <footer>
         <div class="container">

@@ -1,6 +1,7 @@
 export const select = {
   templateOf: {
-    songWidget: '#template-song-widget'
+    songWidget: '#template-song-widget',
+    resultAmount: '#template-result-amount'
   },
 
   containerOf: {
@@ -9,7 +10,8 @@ export const select = {
     subscribe: '.subscribe',
     home: '.home-wrapper',
     discover: '.discover-wrapper',
-    search: '.search-wrapper'
+    search: '.search-wrapper',
+    resultAmount: '.result-amount-wrapper'
   },
 
   nav: {
@@ -43,6 +45,7 @@ export const settings = {
 };
 
 export const templates = {
-  songWidget: Handlebars.compile(document.querySelector(select.templateOf.songWidget).innerHTML)
+  songWidget: Handlebars.compile(document.querySelector(select.templateOf.songWidget).innerHTML),
+  resultAmount: Handlebars.compile(document.querySelector(select.templateOf.resultAmount).innerHTML)
 };
 
