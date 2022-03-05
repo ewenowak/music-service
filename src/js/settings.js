@@ -11,7 +11,8 @@ export const select = {
     home: '.home-wrapper',
     discover: '.discover-wrapper',
     search: '.search-wrapper',
-    resultAmount: '.result-amount-wrapper'
+    resultAmount: '.result-amount-wrapper',
+    resultAmountText: '.result-amount-text'
   },
 
   nav: {

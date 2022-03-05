@@ -21,6 +21,7 @@ class SearchWidget{
     thisWidget.dom.button = document.querySelector(select.form.button);
     thisWidget.dom.searchWrapper = document.querySelector(select.containerOf.search);
     thisWidget.dom.resultAmountWrapper = document.querySelector(select.containerOf.resultAmount);
+    thisWidget.dom.resultAmountText = document.querySelector(select.containerOf.resultAmountText);
   }
 
   initActions(){
@@ -63,14 +64,18 @@ class SearchWidget{
 
     thisWidget.amount ={};
 
-    thisWidget.amount.number = resultNumber.toString(10);
+    if(resultNumber == 1){
+      thisWidget.amount.number = resultNumber.toString(10) + ' song';
+    } else{
+      thisWidget.amount.number = resultNumber.toString(10) + ' songs';
+    }
 
     const generatedHTML = templates.resultAmount(thisWidget.amount);
 
     thisWidget.element = utils.createDOMFromHTML(generatedHTML);
-
+    
     const amountContainer = thisWidget.dom.resultAmountWrapper;
-
+    
     amountContainer.appendChild(thisWidget.element);
   }
 

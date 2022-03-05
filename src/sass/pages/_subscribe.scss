@@ -42,10 +42,9 @@
     
 
   a{
-        
     display: block;
-    width: 313px;
-    height: 133px;
+    width: 350px;
+    height: 140px;
     background-color: $color-main;
     color: $color-light;
     text-decoration: none;
@@ -56,6 +55,8 @@
     text-align: center;
     border-radius: 5px;
     padding-top: 45px;
+    padding-right: 5px;
+    padding-left: 5px;
   }
 }
 
@@ -127,92 +128,59 @@
   }
 
   .subscribe-title{
-    font-size: 40px;
-    letter-spacing: 10px;
+    font-size: 30px;
+    letter-spacing: 3px;
     top: -35px;
     position: absolute;
+
+    a{
+      width: 250px;
+    }
   }
 
   .row{
-    width: 700px;
+    width: 500px;
     display: flex;
+    flex-direction: column;
+    transform: scale(70%);
   }
 
-  .subscribe-button {
-    top: 70%;
-    flex: 1;
-    
+  .subscribe-button{
+    top: -70%;
+    width: 70%;
+    transform: translate(-70%, 130%);
 
-    a{
-      margin-top: -100px;
-      display: block;
-      width: 200px;
-      height: 80px;
-      font-size: 16px;
-      letter-spacing: 3px;
-      font-weight: $font-bold;
-      padding-top: 25px;
-    }
   }
 
-  .album{  
-    flex: 2;
-    font-size: 30px;
-    position: relative;
-    max-width: 700px;
-    display: inline-block;
-    
-    
+  .album{
+    top: -50%;
+    width: -100%;
+    transform: translate(-100%, -50%); 
+
     .album-title{
       font-size: 50px;
+      margin-left: 100px;
       letter-spacing: 5px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      margin-left: 50px;
-
+       
       p:nth-child(2){
-        margin-top: -50px;
-        margin-left: 50px;
-            
-        span{
-          color: $color-main;
-        }
+        margin-top: -25px;
+        margin-left: 40px;
       }
-        
     }
-
+  
     .album-image{
-      position: absolute;
-      width: 383px;
-      height: 473px;
-      z-index: -1;
-      margin: 0 auto;
-      top: 50%;
-      left: 65%;
-      transform: translate(-50%, -50%);
-
-      img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-
-      }
+      left: 99%;
     }
 
     .album-subtitle{
-      position: absolute;
-      top: 75%;
-      left: -20%;
-      transform: translateX(20%);
       font-size: 30px;
-      font-weight: $font-regular;
-      letter-spacing: 3px;
-       
+      top: 220%;
+      left: 10%;
+      transform: translateX(50%);
+      letter-spacing: 2px;
+    
       p:nth-child(1){
-        color: $color-medium;
-        text-transform: uppercase;
-        margin-bottom: -20px;
+      margin-bottom: -30px;
       }
     }
   }
