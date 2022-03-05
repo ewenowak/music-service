@@ -17,12 +17,10 @@ class SearchWidget{
   getElements(){
     const thisWidget = this;
 
-
     thisWidget.dom.input = document.querySelector(select.form.input);
     thisWidget.dom.button = document.querySelector(select.form.button);
     thisWidget.dom.searchWrapper = document.querySelector(select.containerOf.search);
     thisWidget.dom.resultAmountWrapper = document.querySelector(select.containerOf.resultAmount);
-   
   }
 
   initActions(){
@@ -30,6 +28,7 @@ class SearchWidget{
 
     thisWidget.dom.button.addEventListener('click', function(event){
       event.preventDefault();
+      thisWidget.clearResults();
       thisWidget.initSearch();
     });
   }
@@ -40,14 +39,12 @@ class SearchWidget{
     let resultNumber = 0;
     
     thisWidget.value = document.getElementById(select.form.input).value;
-    console.log(thisWidget.value);
   
     let valueRegExp = new RegExp(thisWidget.value, 'i');
    
     for (let song in thisWidget.data.songs){
        
       let filename = thisWidget.data.songs[song].filename;
-      console.log('filename', filename);
 
       const findAmount = filename.search(valueRegExp); 
 
@@ -57,7 +54,10 @@ class SearchWidget{
         new Song(thisWidget.data.songs[song], thisWidget.dom.searchWrapper);
         
         // eslint-disable-next-line no-undef
-        
+        GreenAudioPlayer.init({
+          selector: '.search-wrapper .gap', 
+          stopOthersOnPlay: true
+        }); 
       }
     }
 
@@ -72,7 +72,14 @@ class SearchWidget{
     const amountContainer = thisWidget.dom.resultAmountWrapper;
 
     amountContainer.appendChild(thisWidget.element);
-  } 
+  }
+
+  clearResults(){
+    const thisWidget = this;
+
+    thisWidget.dom.searchWrapper.innerHTML = '';
+    thisWidget.dom.resultAmountWrapper.innerHTML = '';
+  }
 }
 
 export default SearchWidget;

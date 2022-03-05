@@ -1,5 +1,4 @@
 import { select } from '../settings.js';
-//import { utils } from '../utils.js';
 import Song from './Song.js';
 
 class DiscoverSong { 
@@ -8,7 +7,6 @@ class DiscoverSong {
 
     thisDiscoverSong.data = data;
    
-    
     thisDiscoverSong.randomSong();
       
   }
@@ -17,17 +15,16 @@ class DiscoverSong {
     const thisDiscoverSong = this;
 
     const songsNumber = thisDiscoverSong.data.songs.length;
-    
-    
     const randomNumber = Math.floor(Math.random() * songsNumber);
     const discoverWrapper = document.querySelector(select.containerOf.discover);
     
     new Song(thisDiscoverSong.data.songs[randomNumber], discoverWrapper);
 
-
     // eslint-disable-next-line no-undef
-    //utils.initGreenAudioPlayer();
-
+    GreenAudioPlayer.init({
+      selector: '.discover-wrapper .gap',
+      stopOthersOnPlay: true
+    });
   }
 }
 

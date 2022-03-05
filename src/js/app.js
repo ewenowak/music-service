@@ -1,9 +1,7 @@
 import { settings, select, classNames } from './settings.js';
-
 import Song from './components/Song.js';
 import SearchWidget from './components/SearchWidget.js';
 import DiscoverSong from './components/DiscoverSong.js';
-import { utils } from './utils.js';
 
 
 const app = {
@@ -33,16 +31,10 @@ const app = {
       link.addEventListener('click', function(event){
         const clickedElement = this;
         event.preventDefault();
-
-        /* get page id from href attribute */
         
         const id = clickedElement.getAttribute('href').replace('#', '');
-        
-        /* run thisApp.activatePage with id */
 
         thisApp.activatePage(id);
-
-        /* change URL hash */
 
         window.location.hash = '#/' + id;
       });
@@ -53,23 +45,17 @@ const app = {
 
   activatePage: function(pageId){
     const thisApp = this;
-
-    /* add class active to matching page, remove from non-matching */
     
     for (let page of thisApp.pages){
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
 
-    console.log('pageID', pageId);
-
-    /* add class active to matching page, remove from non-matching */
     for (let link of thisApp.navLinks){
       link.classList.toggle(
         classNames.nav.active,
         link.getAttribute('href') == '#' + pageId
       );
     }
-    
   },
 
   initData: function(){
@@ -87,11 +73,8 @@ const app = {
         thisApp.data.songs = parsedResponse;
        
         thisApp.initSongs();
-        
         thisApp.initDiscoverSong();
-        
         thisApp.initSearchWidget();
-        utils.initGreenAudioPlayer();
       });
   },
 
@@ -105,7 +88,10 @@ const app = {
     }
 
     // eslint-disable-next-line no-undef
-    //utils.initGreenAudioPlayer();
+    GreenAudioPlayer.init({
+      selector: '.home-wrapper .gap', 
+      stopOthersOnPlay: true
+    });
   },
 
   initDiscoverSong(){
@@ -117,8 +103,6 @@ const app = {
     const thisApp = this;
     new SearchWidget(thisApp.data);
   },
-
-
 
   init: function(){
     const thisApp = this;

@@ -1,5 +1,4 @@
 import { templates} from '../settings.js';
-
 import { utils } from '../utils.js';
 
 
@@ -26,7 +25,6 @@ class Song {
     const songContainer = thisSong.dom.wrapper;
 
     songContainer.appendChild(thisSong.element);
-
   }
 
 
@@ -34,21 +32,21 @@ class Song {
   songData(){
     const thisSong = this;
 
-    let categoryData = '';
+    let categoryName = '';
 
     for(let category in thisSong.data.categories){
-      categoryData += thisSong.data.categories[category];
+      categoryName += categoryName + ' ' + thisSong.data.categories[category];
     }
-
+    categoryName = categoryName.replace(' ','');
+    categoryName = categoryName.replaceAll(' ', ', ');
 
     thisSong.songData = {};
 
     thisSong.songData.song = thisSong.data.filename;
     thisSong.songData.title = thisSong.data.title;
     thisSong.songData.author = thisSong.getAuthorName(thisSong.data.filename);
-    thisSong.songData.categories = categoryData;
+    thisSong.songData.categories = categoryName;
     thisSong.songData.ranking = thisSong.data.ranking;
-
   }
   
   getAuthorName(author){
@@ -65,7 +63,6 @@ class Song {
 
     return author;
   }
-  
 }
 
 export default Song;

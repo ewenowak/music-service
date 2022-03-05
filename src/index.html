@@ -25,19 +25,23 @@
     </header>
 
     <div id="pages">
-        <section id="home" class="container">
+        <section id="home">
             <div class="home-wrapper"></div>
             <div class="subscribe">
-                <div class="container">
-                    <h1>Subscribe<span>now</span></h1>
-                    <div class="row">
-                        <div class="btn subscribe-button">
+                <h1 class="subscribe-title"><span>Subscribe</span>now</h1>
+                <div class="row">
+                    <div class="btn subscribe-button">
                         <a href="#join-now">join now</a>
-                        </div>
-                        <div class="subscribe-content">
+                    </div>
+                    <div class="album">
+                        <div class="album-title">
                             <p>Dean</p>
                             <p>Hen<span>son</span></p>
+                        </div>
+                        <div class="album-image">
                             <img src="./images/artist.jpg" alt="artist">
+                        </div>
+                        <div class="album-subtitle">
                             <p>new album</p>
                             <p>Available only for subscribers</p>
                         </div>
@@ -45,19 +49,19 @@
                 </div>
             </div>
         </section>
-        <section id="search" class="container">
+        <section id="search" class="search container">
             <h2 class="page-title">SEARCH</h2>
-            <div class="form">
+            <div class="search-form">
                 <label>Name</label>
                 <input id="search-input" type="text">
                 <button type="button">search</button>
             </div>
-            <p class="result-amount-wrapper"></p>
+            <p class="result-amount-wrapper page-subtitle"></p>
             <div class="search-wrapper"></div>
         </section>
-        <section id="discover" class="container">
+        <section id="discover" class="discover container">
             <h2 class="page-title">DISCOVER</h2>
-            <p>Give it a try!</p>
+            <p class="page-subtitle">Give it a try!</p>
             <div class="discover-wrapper">
             </div>
         </section>
@@ -66,7 +70,7 @@
     </div>
     <script id="template-song-widget" type="text/x-handlebars-template">
         <div class="container song-wrapper">
-            <div class="song_name">
+            <div class="song-name">
                 <p><span class="song-author">{{author}}</span> - {{title}}</p>
             </div>
             <div class="gap">
@@ -81,7 +85,7 @@
         </div>
     </script>
     <script id="template-result-amount" type="text/x-handlebars-template">
-        <p>We have found {{number}} songs.</p>
+        <p>We have found {{number}} songs...</p>
     </script>
     <footer>
         <div class="container">
